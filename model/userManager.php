@@ -2,7 +2,7 @@
 require_once "model.php";
 require "model/entity/user.php";
 
-class userManager extends Model {
+class UserManager extends Model {
 
     // Récupère tous les utilisateurs
     public function getUsers() {

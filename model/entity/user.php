@@ -3,7 +3,6 @@ require_once "model/entity/entity.php";
 
 // Classe représetant les utilisateurs stockés en base de données
 class User extends Entity {
-
     protected string $firstname;
     protected string $lastname;
     protected string $adress;
@@ -54,10 +53,17 @@ class User extends Entity {
             $this->email = $email;
             return $this;
         }
-        throw new Exception("Format d'email incorrect");
+        throw new Exception("Email is not correct");
     }
     public function getEmail() {
         return $this->email;
+    }
+
+    public function setBirth_date(string $birth_date) {
+        $this->birth_date = htmlspecialchars($birth_date);
+    }
+    public function getBirth_date() {
+        return $this->birth_date;
     }
 
     public function __construct($data) {
