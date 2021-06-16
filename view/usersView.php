@@ -1,1 +1,9 @@
-<p>Vos utilisateurs en base de données s'affichent sur cette page</p>
+<?php
+include "layout/header.php";
+?>
+
+<p>Usersview</p>
+
+<?php 
+include "layout/footer.php"; 
+?>
