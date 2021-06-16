@@ -19,22 +19,35 @@ class userManager extends Model {
     }
 
     // Récupère un utilisateur par son id
-    public function getUserById($user_id) {
+    public function getSingleUser($user_id):User {
       $query = $this->db->prepare(
         "SELECT *
         FROM user
         WHERE id = :user_id"
       );
       $query->execute([
-        "user_id" => $user_id
-      ]);
+        "user_id"=>$user_id
+        ]);
       $user = $query->fetchAll(PDO::FETCH_ASSOC);
-      // $user = new User($user[0]);
+      $user = new User($user[0]);
       return $user;
     }
 
-    // Récupère un utilisateur par son code personnel
-    public function getUser() {
-
+    public function addUser($firstname, $lastname, $adress, $postcode, $city, $email, $birth_date) {
+      $query = $this->db->prepare(
+        "INSERT INTO user (firstname, lastname, adress, postcode, city, email, birth_date)
+        VALUES (:firstname, :lastname, :adress, :postcode, :city, :email, :birth_date)"
+      );
+      $query->execute([
+        "firstname" => $firstname,
+        "lastname" => $lastname,
+        "adress" => $adress,
+        "postcode" => $postcode,
+        "city" => $city,
+        "email" => $email,
+        "birth_date" => $birth_date
+      ]);
+      return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+    
 }
