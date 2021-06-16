@@ -2,7 +2,7 @@
 include "layout/header.php";
 ?>
 
-<p>Usersview</p>
+<p>Booksview</p>
 
 <?php 
 include "layout/footer.php"; 
