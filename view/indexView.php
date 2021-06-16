@@ -1,1 +1,9 @@
-<p>Vos livre au catalogue s'affichent sur cette page</p>
+<?php
+include "layout/header.php";
+?>
+
+
+
+<?php 
+include "layout/footer.php"; 
+?>
