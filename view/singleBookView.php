@@ -18,8 +18,25 @@ var_dump($book);
         </div>
 </div>
 
+<?php if($book->getUser_id() === NULL): ?>
+<div class="mt-3 col-4 mb-2 ">
+    <form class="card-body" method="POST">
+    <div class="form-group my-3">
+        <p>ID of the User borrowing the book :</p>
+        <label>ID : </label>
+        <input name="id" value = "id" type="number" class="form-control" required="required">
+    </div>
+    <button name="borrow" type="submit" class="btn btn-outline-dark">Borrow Book</button>
+    </form>
+</div>
 
+<?php else: ?>
+<form method="POST">
+    <button name="return" type="submit" class="btn btn-outline-dark">Return Book</button>
+</form>
 
-<?php 
+<?php
+endif;
+
 include "layout/footer.php"; 
 ?>
