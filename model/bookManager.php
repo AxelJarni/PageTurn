@@ -8,7 +8,7 @@ class BookManager extends Model{
   public function getBooks() {
     $query = $this->db->prepare(
       "SELECT *
-      FROM book"
+      FROM Book"
     );
     $query->execute();
     $books = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -22,7 +22,7 @@ class BookManager extends Model{
   public function getSingleBook($book_id):Book {
     $query = $this->db->prepare(
       "SELECT *
-      FROM book
+      FROM Book
       WHERE id = :book_id"
     );
     $query->execute([
@@ -36,7 +36,7 @@ class BookManager extends Model{
   // Ajoute un nouveau livre
   public function addBook($title, $author, $genre, $synopsis, $release_date) {
     $query = $this->db->prepare(
-      "INSERT INTO book (title, author, genre, synopsis, release_date, status)
+      "INSERT INTO Book (title, author, genre, synopsis, release_date, status)
       VALUES (:title, :author, :genre, :synopsis, :release_date, 1)"
     );
     $query->execute([
@@ -61,6 +61,20 @@ class BookManager extends Model{
       "status" => $status,
       "user_id" => $user_id,
       "id" => $book_id
+    ]);
+    return $result;
+  }
+
+  public function whoBorrowed($book_id) {
+    $query = $this->db->prepare(
+      "SELECT u.id, u.firstname, u.lastname, b.user_id, b.id
+      FROM User AS u
+      LEFT JOIN Book AS b
+      ON u.id = b.user_id
+      WHERE b.id = :book_id"
+    );
+    $result = $query->execute([
+      "book_id" => $book_id
     ]);
     return $result;
   }

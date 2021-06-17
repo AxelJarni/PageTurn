@@ -1,10 +1,10 @@
 <?php
 include "layout/header.php";
-var_dump($book);
+// var_dump($book);
 // var_dump($book->getUser_id());
 ?>
 <div class="m-5 row justify-content-center">
-        <div class="card col-8">
+        <div class="card col-6">
             <!-- <img src="https://toppng.com/uploads/preview/open-book-icon-png-download-book-black-and-white-11563256975aruucvosij.png" class="card-img-top m-1" alt="book"> -->
             <div class="card-body">
             <h4 class="card-title"><strong>Title : </strong><?php echo $book->getTitle(); ?></h4>
@@ -12,9 +12,7 @@ var_dump($book);
             <p class="card-text"><strong>Genre : </strong><?php echo $book->getGenre(); ?></p>
             <p class="card-text"><strong>Release Date : </strong><?php echo $book->getRelease_date(); ?></p>
             <p class="card-text"><strong>Synopsis : </strong><?php echo $book->getSynopsis(); ?></p>
-            <p class="card-text"><strong>STATUS : </strong><?php echo $book->getStatus(); ?></p>
-            <p class="card-text"><strong>USER ID : </strong><?php echo $book->getUser_id(); ?></p>
-            <a href="index.php" class="btn btn-outline-dark">Retour </a>
+            <a href="books.php" class="btn btn-outline-dark">Back </a>
         </div>
 </div>
 
@@ -31,12 +29,23 @@ var_dump($book);
 </div>
 
 <?php else: ?>
-<form method="POST">
-    <button name="return" type="submit" class="btn btn-outline-dark">Return Book</button>
-</form>
 
+<div class="m-3 col-4 row justify-content-end animate__animated animate__bounceInRight">
+<?php foreach($users as $user): ?>
+    <div class="card" >
+        <div class="card-body">   
+            <h3 class="card-title text-center"><strong>Book is currently borrowed by : </strong></h3>
+            <h5 class="card-title"><strong>ID : </strong><?php echo $book->getUser_id(); ?></h5>
+            <p class="card-text"><strong>Name : </strong><?php echo $user->getFirstname() . " " . $user->getLastname(); ?></p>
+            <form method="POST">
+                <button name="return" type="submit" class="btn btn-outline-dark">Return Book</button>
+            </form>
+        </div>
+    </div>
+</div>
 <?php
-endif;
-
+endforeach;
+endif;?>
+<?php
 include "layout/footer.php"; 
 ?>

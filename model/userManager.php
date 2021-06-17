@@ -19,7 +19,7 @@ class UserManager extends Model {
     }
 
     // Récupère un utilisateur par son id
-    public function getSingleUser($user_id):User {
+    public function getSingleUser($user_id) {
       $query = $this->db->prepare(
         "SELECT *
         FROM user
@@ -28,9 +28,11 @@ class UserManager extends Model {
       $query->execute([
         "user_id"=>$user_id
         ]);
-      $user = $query->fetchAll(PDO::FETCH_ASSOC);
-      $user = new User($user[0]);
-      return $user;
+      $users = $query->fetchAll(PDO::FETCH_ASSOC);
+      foreach($users as $key => $user){
+        $users[$key] = new User($user);
+      }
+      return $users;
     }
 
     public function addUser($firstname, $lastname, $adress, $postcode, $city, $email, $birth_date) {
