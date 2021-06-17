@@ -54,7 +54,7 @@ class BookManager extends Model{
     $query = $this->db->prepare(
       "UPDATE Book
       SET status = :status
-      where id = :id"
+      WHERE id = :id"
     );
     $result = $query->execute([
       "status" => $status,
@@ -63,4 +63,14 @@ class BookManager extends Model{
     return $result;
   }
 
+  public function deleteBook($book_id) {
+    $query = $this->db->prepare(
+      "DELETE FROM Book
+      WHERE id = :id"
+    );
+    $result = $query->execute([
+      "id" => $book_id
+    ]);
+    return $result;
+  }
 }

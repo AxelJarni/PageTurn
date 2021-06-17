@@ -19,7 +19,7 @@ include "layout/header.php";
         <?php foreach($books as $book) : ?>
             <tr>
             <td><?php echo $book->getID(); ?></td>
-            <td><?php echo $book->getTitle(); ?></td>
+            <td><a href="singleBook.php?id=<?php echo $book->getId(); ?>"><?php echo $book->getTitle(); ?></a></td>
             <td><?php echo $book->getAuthor(); ?></td>
             <td><?php echo $book->getGenre(); ?></td>
             <td><?php echo $book->getStatus(); ?></td>
