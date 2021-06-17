@@ -35,7 +35,8 @@ $bookModel = new BookManager();
 // CHANGE BOOK STATUS
 // $status = 0;
 // $book_id = 1;
-// $bookModel->updateBookStatus($status, $book_id);
+// $user_id = 2;
+// $bookModel->updateBookStatus($status, $user_id, $book_id);
 
 // Controlleur qui gérer l'affichage de tous les livres
 require "view/indexView.php";

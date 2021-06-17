@@ -50,14 +50,16 @@ class BookManager extends Model{
   }
 
   // Met à jour le statut d'un livre emprunté
-  public function updateBookStatus($status, $book_id) {
+  public function updateBookStatus($status, $user_id, $book_id) {
     $query = $this->db->prepare(
       "UPDATE Book
-      SET status = :status
+      SET status = :status, 
+          user_id = :user_id
       WHERE id = :id"
     );
     $result = $query->execute([
       "status" => $status,
+      "user_id" => $user_id,
       "id" => $book_id
     ]);
     return $result;
