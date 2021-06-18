@@ -33,19 +33,20 @@ class BookManager extends Model{
   }
 
   // Ajoute un nouveau livre
-  public function addBook($title, $author, $genre, $synopsis, $release_date) {
+  public function addBook($newBook) {
     $query = $this->db->prepare(
       "INSERT INTO Book (title, author, genre, synopsis, release_date, status)
       VALUES (:title, :author, :genre, :synopsis, :release_date, 1)"
     );
     $query->execute([
-      "title" => $title,
-      "author" => $author,
-      "genre" => $genre,
-      "synopsis" => $synopsis,
-      "release_date" => $release_date
+      "title" => $newBook["title"],
+      "author" => $newBook["author"],
+      "genre" => $newBook["genre"],
+      "synopsis" => $newBook["synopsis"],
+      "release_date" => $newBook["release_date"]
     ]);
-    return $query->fetchAll(PDO::FETCH_ASSOC);
+    $book = $query->fetchall(PDO::FETCH_ASSOC);
+    return $book;
   }
 
   // Met à jour le statut d'un livre emprunté
@@ -64,19 +65,19 @@ class BookManager extends Model{
     return $result;
   }
 
-  public function whoBorrowed($book_id) {
-    $query = $this->db->prepare(
-      "SELECT u.id, u.firstname, u.lastname, b.user_id, b.id
-      FROM User AS u
-      LEFT JOIN Book AS b
-      ON u.id = b.user_id
-      WHERE b.id = :book_id"
-    );
-    $result = $query->execute([
-      "book_id" => $book_id
-    ]);
-    return $result;
-  }
+  // public function whoBorrowed($book_id) {
+  //   $query = $this->db->prepare(
+  //     "SELECT u.id, u.firstname, u.lastname, b.user_id, b.id
+  //     FROM User AS u
+  //     LEFT JOIN Book AS b
+  //     ON u.id = b.user_id
+  //     WHERE b.id = :book_id"
+  //   );
+  //   $result = $query->execute([
+  //     "book_id" => $book_id
+  //   ]);
+  //   return $result;
+  // }
 
   public function deleteBook($book_id) {
     $query = $this->db->prepare(

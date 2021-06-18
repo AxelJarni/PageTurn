@@ -16,7 +16,12 @@ if($book->getUser_id()) {
 if(!$book) {
     $error = "Nous avons rencontré un problème, veuillez retourner à l'accueil.";
 }
-
+if(isset($_POST["delete"])) {
+    $deleteBook = $bookModel->deleteBook($_GET["id"]);
+    if($deleteBook) {
+        header('Location: books.php');
+    }
+}
 if(isset($_POST["borrow"])){
     if($_POST["id"]){
     $status = 0;
@@ -32,7 +37,7 @@ if(isset($_POST["return"])){
     header("location: books.php");
 }
 
-$whohaveit = $bookModel->whoBorrowed($_GET["id"]);
+// $whohaveit = $bookModel->whoBorrowed($_GET["id"]);
 
 
 require "view/singleBookView.php";
