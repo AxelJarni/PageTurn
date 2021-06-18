@@ -17,11 +17,12 @@
   <!-- Place favicon.ico in the root directory -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
   <link rel="stylesheet" href="../assets/css/normalize.css">
-  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/main.css?v=<?php echo time(); ?>">
+  
 
   <meta name="theme-color" content="#fafafa">
 </head>
-
+<div id="wrap">
 <body>
     <header class="jumbotron jumbotron-fluid bg-light my-0 py-4">
         <section class="container mb-2 text-center">

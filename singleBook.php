@@ -8,9 +8,9 @@ $book = $bookModel->getSingleBook($_GET["id"]);
 $users = $userModel->getUsers();
 $user_id = $book->getUser_id();
 
-if($book->getUser_id() !== NULL) {
+if($book->getUser_id()) {
     $users = $userModel->getSingleUser($user_id);
-    var_dump($users);
+    // var_dump($users);
 };
 
 if(!$book) {

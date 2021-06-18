@@ -1,6 +1,9 @@
 <?php
 require "model/userManager.php";
+require "model/bookManager.php";
+
 $userModel = new UserManager();
+$bookModel = new BookManager();
 // GET USERS
 // $users = $userModel->getUsers();
 // var_dump($users);
@@ -13,8 +16,8 @@ $userModel = new UserManager();
 // ADD USER
 // $userModel->addUser("Hugo", "Lloris", "34 rue du bouchon", "69000", "Lyon", "thefrenchwall@gmail.com", "1986-12-26");
 
-require "model/bookManager.php";
-$bookModel = new BookManager();
+
+
 // GET BOOKS
 // $books = $bookModel->getBooks();
 // var_dump($books);
@@ -38,6 +41,5 @@ $bookModel = new BookManager();
 // $user_id = 2;
 // $bookModel->updateBookStatus($status, $user_id, $book_id);
 
-// Controlleur qui gérer l'affichage de tous les livres
 require "view/indexView.php";
 
