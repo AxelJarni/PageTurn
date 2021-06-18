@@ -31,12 +31,11 @@ include "layout/header.php";
 <?php else: ?>
 
 <div class="m-3 col-4 row justify-content-end animate__animated animate__bounceInRight">
-<?php foreach($users as $user): ?>
     <div class="card" >
         <div class="card-body">   
             <h3 class="card-title text-center"><strong>Book is currently borrowed by : </strong></h3>
             <h5 class="card-title"><strong>ID : </strong><?php echo $book->getUser_id(); ?></h5>
-            <p class="card-text"><strong>Name : </strong><?php echo $user->getFirstname() . " " . $user->getLastname(); ?></p>
+            <p class="card-text"><strong>Name : </strong><?php echo $users->getFirstname() . " " . $users->getLastname(); ?></p>
             <form method="POST">
                 <button name="return" type="submit" class="btn btn-outline-dark">Return Book</button>
             </form>
@@ -44,7 +43,7 @@ include "layout/header.php";
     </div>
 </div>
 <?php
-endforeach;
+// endforeach;
 endif;?>
 <?php
 include "layout/footer.php"; 

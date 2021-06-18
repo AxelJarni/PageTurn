@@ -7,7 +7,11 @@ $userModel = new UserManager();
 $book = $bookModel->getSingleBook($_GET["id"]);
 $users = $userModel->getUsers();
 $user_id = $book->getUser_id();
-$users = $userModel->getSingleUser($user_id);
+
+if($book->getUser_id() !== NULL) {
+    $users = $userModel->getSingleUser($user_id);
+    var_dump($users);
+};
 
 if(!$book) {
     $error = "Nous avons rencontré un problème, veuillez retourner à l'accueil.";

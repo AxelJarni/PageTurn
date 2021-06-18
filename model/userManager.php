@@ -8,7 +8,7 @@ class UserManager extends Model {
     public function getUsers() {
       $query = $this->db->prepare(
         "SELECT *
-        FROM user"
+        FROM User"
       );
       $query->execute();
       $users = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -28,11 +28,12 @@ class UserManager extends Model {
       $query->execute([
         "user_id"=>$user_id
         ]);
-      $users = $query->fetchAll(PDO::FETCH_ASSOC);
-      foreach($users as $key => $user){
-        $users[$key] = new User($user);
-      }
-      return $users;
+      $user = $query->fetch(PDO::FETCH_ASSOC);
+      // $user = $users;
+      // foreach($users as $key => $user){
+      //   $users[$key] = new User($user);
+      // }
+      return new User($user);
     }
 
     public function addUser($firstname, $lastname, $adress, $postcode, $city, $email, $birth_date) {

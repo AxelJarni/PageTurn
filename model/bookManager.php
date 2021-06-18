@@ -28,9 +28,8 @@ class BookManager extends Model{
     $query->execute([
       "book_id"=>$book_id
       ]);
-    $book = $query->fetchAll(PDO::FETCH_ASSOC);
-    $book = new Book($book[0]);
-    return $book;
+    $book = $query->fetch(PDO::FETCH_ASSOC);
+    return new Book($book);
   }
 
   // Ajoute un nouveau livre
