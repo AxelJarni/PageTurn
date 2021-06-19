@@ -1,5 +1,6 @@
-</main>
-  <footer class="jumbotron jumbotron-fluid bg-secondary text-white py-4">
+  </main>
+</div>
+  <footer class="jumbotron jumbotron-fluid text-black py-4" style="background-color: #e3f2fd;">
     <div class="container col-12">
       <p class="text-end col-12">An application developped by Axel JARNIGON for PageTurn©</p>
     </div>

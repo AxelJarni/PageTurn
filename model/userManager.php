@@ -4,11 +4,11 @@ require "model/entity/user.php";
 
 class UserManager extends Model {
 
-    // Récupère tous les utilisateurs
+    // Get all users
     public function getUsers() {
       $query = $this->db->prepare(
         "SELECT *
-        FROM user"
+        FROM User"
       );
       $query->execute();
       $users = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -18,8 +18,8 @@ class UserManager extends Model {
       return $users;
     }
 
-    // Récupère un utilisateur par son id
-    public function getSingleUser($user_id):User {
+    // Get a single user by his ID
+    public function getSingleUser($user_id) {
       $query = $this->db->prepare(
         "SELECT *
         FROM user
@@ -28,24 +28,28 @@ class UserManager extends Model {
       $query->execute([
         "user_id"=>$user_id
         ]);
-      $user = $query->fetchAll(PDO::FETCH_ASSOC);
-      $user = new User($user[0]);
-      return $user;
+      $user = $query->fetch(PDO::FETCH_ASSOC);
+      // $user = $users;
+      // foreach($users as $key => $user){
+      //   $users[$key] = new User($user);
+      // }
+      return new User($user);
     }
 
-    public function addUser($firstname, $lastname, $adress, $postcode, $city, $email, $birth_date) {
+    // Add a User to the database
+    public function addUser($newUser) {
       $query = $this->db->prepare(
         "INSERT INTO user (firstname, lastname, adress, postcode, city, email, birth_date)
         VALUES (:firstname, :lastname, :adress, :postcode, :city, :email, :birth_date)"
       );
       $query->execute([
-        "firstname" => $firstname,
-        "lastname" => $lastname,
-        "adress" => $adress,
-        "postcode" => $postcode,
-        "city" => $city,
-        "email" => $email,
-        "birth_date" => $birth_date
+        "firstname" => $newUser["firstname"],
+        "lastname" => $newUser["lastname"],
+        "adress" => $newUser["adress"],
+        "postcode" => $newUser["postcode"],
+        "city" => $newUser["city"],
+        "email" => $newUser["email"],
+        "birth_date" => $newUser["birth_date"]
       ]);
       return $query->fetchAll(PDO::FETCH_ASSOC);
     }
