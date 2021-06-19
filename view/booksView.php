@@ -1,8 +1,8 @@
 <?php
 include "layout/header.php";
 ?>
-
-<h3>Existing Books : </h3>
+<div class="button_cont text-center float-end col-3 mb-2"><a class="listbtn addbook" href="addBook.php" target="_blank" rel="nofollow noopener">Add a new Book</a></div>
+<h3 class="mt-5">Existing Books : </h3>
 <div class="row my-3">
     <div>
     <table class="table table-striped table-light">
