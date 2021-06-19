@@ -114,6 +114,12 @@ footer {position: relative;
     height: auto;
 }
 
+.nav-link {
+    color: black;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
 .indexbtn {
 	color: #fff !important;
     width: 100%;
@@ -137,9 +143,32 @@ footer {position: relative;
 	transition: all 0.4s ease 0s;
 }
 
+.checkbooks {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(241,255,50,1) 56%, rgba(250,255,35,1) 100%, rgba(193,215,40,1) 100%); 
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.checkbooks:hover {
+    background: rgb(2,0,36);
+    background: linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(241,255,50,1) 56%, rgba(250,255,35,1) 100%, rgba(193,215,40,1) 100%); 
+}
+
+.checkusers {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(238,135,255,1) 72%, rgba(171,69,255,1) 100%, rgba(193,215,40,1) 100%); 
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.checkusers:hover {
+    background: rgb(2,0,36);
+    background: linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(238,135,255,1) 72%, rgba(171,69,255,1) 100%, rgba(193,215,40,1) 100%); 
+}
+
 .addbook {
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(86,147,203,1) 35%, rgba(0,212,255,1) 100%); 
+    text-shadow: 2px 2px 4px #000000;
 }
 
 .addbook:hover {
@@ -150,11 +179,23 @@ footer {position: relative;
 .adduser {
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(86,203,111,1) 35%, rgba(40,215,116,1) 100%); 
+    text-shadow: 2px 2px 4px #000000;
 }
 
 .adduser:hover {
     background: rgb(2,0,36);
     background: linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(86,203,111,1) 35%, rgba(40,215,116,1) 100%); 
+}
+
+.table a {
+    text-decoration: none;
+    color: #043877;
+    font-weight: 500;
+}
+
+.table a:hover {
+    color: #0057c2;
+    text-decoration: underline;
 }
 /* ##################################################################### */
 /* ##########################   SMARTPHONE   ########################### */

@@ -67,7 +67,7 @@ class BookManager extends Model{
 
   // public function whoBorrowed($book_id) {
   //   $query = $this->db->prepare(
-  //     "SELECT u.id, u.firstname, u.lastname, b.user_id, b.id
+  //     "SELECT u.id, u.firstname, u.lastname, b.user_id, b.id, b.title, b.author, b.synopsis, b.release_date, b.genre
   //     FROM User AS u
   //     LEFT JOIN Book AS b
   //     ON u.id = b.user_id

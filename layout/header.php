@@ -30,25 +30,21 @@
             <h1 class="display-4 border-bottom border-primary mt-0"><strong>PageTurn</strong></h1>
             <p class="lead pb-2">Your library application to help you manage.</p>
         </section>
-        <?php if(isset($_SESSION["user"])): ?>
-            <a class="btn btn-dark mx-3" href="logout.php">Déconnexion</a>
-        <?php endif; ?>
     </header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-        <a class="navbar-brand mx-5" href="#">PageTurn</a>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse mx-5" id="navbarNavDropdown">
             <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link text-white mx-2" href="index.php">Home <span class="sr-only"></span></a>
+                <a class="nav-link text-black mx-2" href="index.php">Home <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white mx-2" href="books.php">Books</a>
+                <a class="nav-link text-black mx-2" href="books.php">Books</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white mx-2" href="users.php">Users</a>
+                <a class="nav-link text-black mx-2" href="users.php">Users</a>
             </li>
             </ul>
         </div>

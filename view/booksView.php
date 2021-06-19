@@ -5,8 +5,8 @@ include "layout/header.php";
 <h3>Existing Books : </h3>
 <div class="row my-3">
     <div>
-    <table class="table table-striped table-dark">
-        <thead class="thead-dark">
+    <table class="table table-striped table-light">
+        <thead class="thead-light">
         <tr>
             <th scope="col">Book's ID</th>
             <th scope="col">Title</th>
@@ -18,9 +18,9 @@ include "layout/header.php";
         <tbody>
         <?php foreach($books as $book) : ?>
             <tr>
-            <td><?php echo $book->getID(); ?></td>
+            <td><a href="singleBook.php?id=<?php echo $book->getId(); ?>"><?php echo $book->getID(); ?></a></td>
             <td><a href="singleBook.php?id=<?php echo $book->getId(); ?>"><?php echo $book->getTitle(); ?></a></td>
-            <td><?php echo $book->getAuthor(); ?></td>
+            <td><a href="singleBook.php?id=<?php echo $book->getId(); ?>"><?php echo $book->getAuthor(); ?></a></td>
             <td><?php echo $book->getGenre(); ?></td>
             <td><?php echo $book->getStatus(); ?></td>
             </tr>

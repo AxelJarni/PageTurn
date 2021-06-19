@@ -5,8 +5,8 @@ include "layout/header.php";
 <h3>Existing Users : </h3>
 <div class="row my-3">
     <div>
-    <table class="table table-striped table-dark">
-        <thead class="thead-dark">
+    <table class="table table-striped table-light">
+        <thead class="thead-light">
         <tr>
             <th scope="col">User's ID</th>
             <th scope="col">Firstname</th>
