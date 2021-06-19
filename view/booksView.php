@@ -16,13 +16,19 @@ include "layout/header.php";
         </tr>
         </thead>
         <tbody>
+        <!-- Showing the list of books -->
         <?php foreach($books as $book) : ?>
             <tr>
             <td><a href="singleBook.php?id=<?php echo $book->getId(); ?>"><?php echo $book->getID(); ?></a></td>
             <td><a href="singleBook.php?id=<?php echo $book->getId(); ?>"><?php echo $book->getTitle(); ?></a></td>
             <td><a href="singleBook.php?id=<?php echo $book->getId(); ?>"><?php echo $book->getAuthor(); ?></a></td>
             <td><?php echo $book->getGenre(); ?></td>
-            <td><?php echo $book->getStatus(); ?></td>
+            <!-- Display a status icon -->
+            <?php if($book->getStatus() === 1): ?>
+            <td><i class="fa fa-check-circle green-color " ></i></td>
+            <?php else: ?>
+            <td><i class="fa fa-times-circle red-color " ></i></td>
+            <?php endif; ?>
             </tr>
         <?php endforeach; ?>
         </tbody>

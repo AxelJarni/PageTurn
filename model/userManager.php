@@ -4,7 +4,7 @@ require "model/entity/user.php";
 
 class UserManager extends Model {
 
-    // Récupère tous les utilisateurs
+    // Get all users
     public function getUsers() {
       $query = $this->db->prepare(
         "SELECT *
@@ -18,7 +18,7 @@ class UserManager extends Model {
       return $users;
     }
 
-    // Récupère un utilisateur par son id
+    // Get a single user by his ID
     public function getSingleUser($user_id) {
       $query = $this->db->prepare(
         "SELECT *
@@ -36,6 +36,7 @@ class UserManager extends Model {
       return new User($user);
     }
 
+    // Add a User to the database
     public function addUser($newUser) {
       $query = $this->db->prepare(
         "INSERT INTO user (firstname, lastname, adress, postcode, city, email, birth_date)

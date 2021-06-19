@@ -18,6 +18,7 @@ include "layout/header.php";
         </tr>
         </thead>
         <tbody>
+        <!-- Showing the list of users -->
         <?php foreach($users as $user) : ?>
             <tr>
             <td><a href="singleuser.php?id=<?php echo $user->getId(); ?>"><?php echo $user->getID(); ?></a></td>

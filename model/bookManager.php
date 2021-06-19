@@ -4,7 +4,7 @@ require "model/entity/book.php";
 
 class BookManager extends Model{
 
-  // Récupère tous les livres
+  // Get all Books
   public function getBooks() {
     $query = $this->db->prepare(
       "SELECT *
@@ -18,7 +18,7 @@ class BookManager extends Model{
     return $books;
   }
 
-  // Récupère un livre
+  // Get a single book
   public function getSingleBook($book_id):Book {
     $query = $this->db->prepare(
       "SELECT *
@@ -32,7 +32,7 @@ class BookManager extends Model{
     return new Book($book);
   }
 
-  // Ajoute un nouveau livre
+  // Add a new book
   public function addBook($newBook) {
     $query = $this->db->prepare(
       "INSERT INTO Book (title, author, genre, synopsis, release_date, status)
@@ -49,7 +49,7 @@ class BookManager extends Model{
     return $book;
   }
 
-  // Met à jour le statut d'un livre emprunté
+  // Update the book status
   public function updateBookStatus($status, $user_id, $book_id) {
     $query = $this->db->prepare(
       "UPDATE Book
@@ -79,6 +79,7 @@ class BookManager extends Model{
   //   return $result;
   // }
 
+  // Delete a book by his ID
   public function deleteBook($book_id) {
     $query = $this->db->prepare(
       "DELETE FROM Book
